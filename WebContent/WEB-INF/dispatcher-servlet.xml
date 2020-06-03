@@ -9,6 +9,11 @@
 						http://www.springframework.org/schema/context
 						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	<bean class="spring.chap06.controller.ReportSubmissionController"/>
+	
+	<bean class="spring.chap06.controller.QueryLogController"/>
+	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
@@ -41,6 +46,24 @@
 				<value>messages.validation</value>
 			</list>
 		</property>
+	</bean>
+	
+	<bean class="spring.chap06.controller.GameInfoController" />
+	
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="alwaysUseFullPath" value="true" />
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="alwaysUseFullPath" value="true" />
+	</bean>
+	
+	<bean class="spring.chap06.controller.CharacterInfoController" />
+	
+	<bean id="authenticator" class="spring.chap06.service.MockAuthenticator"
+			p:commonLogger-ref="commonLogger" />
+	
+	<bean class="spring.chap06.controller.LoginController">
+		<property name="authenticator" ref="authenticator" />
 	</bean>
 
 </beans>

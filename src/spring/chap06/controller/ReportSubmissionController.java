@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
 public class ReportSubmissionController {
-	private String uploadPath = "C:\\JavaPython\\workspace\\Spring\\WebContent\\files";
+	private String uploadPath = "C:\\JavaPython\\workspace\\Spring\\WebContent\\files\\";
 
 	@RequestMapping(value="/report/submission.do", method = RequestMethod.GET)
 	public String form() {
